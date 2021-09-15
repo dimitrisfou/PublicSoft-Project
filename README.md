@@ -27,6 +27,20 @@ Define the URL, in which the frontent will listen:
 
 ![Capture2](https://user-images.githubusercontent.com/83978835/133518305-65449724-8e8c-4153-9e15-c6caba9a62f5.PNG)
 
+----------------------------------------------------------------------------------------------------------------
+
+CRUD FUNCTIONALITY 
+
+UI:
+
+![UI](https://user-images.githubusercontent.com/83978835/133518501-b57803d0-f2f2-45fc-b3be-0015a45b2f42.PNG)
+
+ADD functionality:
+
+![UIAdd1](https://user-images.githubusercontent.com/83978835/133519081-cc1a79b1-3064-4e6b-9973-68e08b49a8e3.PNG)
+
+![UIAdd2](https://user-images.githubusercontent.com/83978835/133519153-941a809a-c762-4bd5-8373-8fbbf484a403.PNG)
+
 
 
 
