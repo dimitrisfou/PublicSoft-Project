@@ -1,0 +1,206 @@
+
+
+<!-- nav bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style ="color:white;">Supplier Manager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <div class="float-right btn-group btn-group-sm">
+              <a class="nav-link" (click)="onOpenModal(null, 'add')" >Add Supplier <span class="sr-only">(current) </span>  </a>
+              
+              </div>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+          <input type="search" (ngModelChange)="searchSuppliers(key.value)" #key="ngModel" ngModel
+            name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search suppliers.." required>
+      </form>
+  </div>
+</nav>
+
+
+<div class="container" id="main">
+  <div class="row">
+      <div *ngFor="let supplier of suppliers" class="col-md-5 col-xl-3 ">
+        <!-- card for each sumplieer -->
+          <div class="card m-b-30">
+              <div class="card-body row align-self-center">
+                  <div class="card-title ">
+                      <h5>{{supplier?.nameFirst}} {{supplier?.nameLast}}</h5>
+                  </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> Company :  {{supplier?.company}} </li>
+                  <!-- <li class="list-group-item"> VAT number :   {{supplier?.vat}} </li> -->
+                  <li class="list-group-item"> IRS office :   {{supplier?.irs}} </li>
+                  <li class="list-group-item"> Address :   {{supplier?.address}} </li>
+                  <li class="list-group-item"> ZIP code :   {{supplier?.zipCode}} </li>
+                  <li class="list-group-item"> City :   {{supplier?.city}} </li>
+                  <li class="list-group-item"> Country :   {{supplier?.country}} </li>
+              </ul>
+              <div class="card-body">
+                  <div class="float-right btn-group btn-group-sm">
+                      <a (click)="onOpenModal(supplier, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                      <a (click)="onOpenModal(supplier, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+   
+  </div>
+</div>
+
+
+<!-- add supplier Modal -->
+
+<div class="modal fade" id="addSupplierModal" tabindex="-1" role="dialog" aria-labelledby="addSupplierModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title" id="addSupplierModalLabel">Add Supplier</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <!-- to understand the angular the attributes in this form i need to ngModel and ngSubmit for fields-->
+         <form #addForm="ngForm" (ngSubmit)="onAddSupplier(addForm)">
+          <div class="form-group">
+             <label for="nameFirst">First Name</label>
+             <input type="text" ngModel  name="nameFirst" class="form-control" id="nameFirst" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+             <label for="nameLast">Last Name</label>
+             <input type="email" ngModel name="nameLast" class="form-control" id="nameLast" placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+             <label for="company">Company</label>
+             <input type="text" ngModel name="company" class="form-control" id="company" placeholder="Company" required>
+          </div>
+          <div class="form-group">
+             <label for="irs">IRS office</label>
+             <input type="text" ngModel  name="irs" class="form-control" id="irs" placeholder="IRS Office" required>
+          </div>
+          <div class="form-group">
+             <label for="address">Address</label>
+             <input type="text" ngModel name="address" class="form-control" id="address" placeholder="Address" required>
+          </div>
+          <div class="form-group">
+             <label for="zipCode">ZIP code</label>
+             <input type="text" ngModel name="zipCode" class="form-control" id="zipCode" placeholder="ZIP Code" required>
+          </div>
+          <div class="form-group">
+             <label for="city">City</label>
+             <input type="text" ngModel name="city" class="form-control" id="city" placeholder="City" required>
+          </div>
+          <div class="form-group">
+             <label for="country">Country</label>
+             <input type="text" ngModel name="country" class="form-control" id="country" placeholder="Country" required>
+          </div>
+          <div class="modal-footer">
+             <button type="button" id="add-supplier-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             <!-- form invalid to complete all fields -->
+             <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+      </form>
+       </div>
+     
+    </div>
+  </div>
+  </div>
+
+
+<!-- edit Modal -->
+
+<div class="modal fade" id="updateSupplierModal" tabindex="-1" role="dialog" aria-labelledby="EditSupplierModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateSupplierModalLabel">Edit Supplier {{editSupplier?.nameFirst}}</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+            <form #editForm="ngForm">   
+              <div class="form-group">
+                 <label for="nameFirst">First Name</label>
+                 <input type="text" ngModel="{{editSupplier?.nameFirst}}" name="nameFirst" class="form-control" id="nameFirst" aria-describedby="emailHelp" placeholder="First Name">
+
+              </div>
+              <input type="hidden" ngModel="{{editSupplier?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+              <input type="hidden" ngModel="{{editSupplier?.vat}}" name="vat" class="form-control" id="vat" placeholder="Email">
+              <div class="form-group">
+                 <label for="nameLast">Last Name</label>
+                 <input type="text" ngModel="{{editSupplier?.nameLast}}" name="nameLast" class="form-control" id="nameLast" placeholder="Last Name">
+
+              </div>
+              <div class="form-group">
+                 <label for="company">Company</label>
+                 <input type="text" ngModel="{{editSupplier?.company}}" name="company" class="form-control" id="company" placeholder="Company">
+
+              </div>
+              <div class="form-group">
+                 <label for="irs">IRS office</label>
+                 <input type="text" ngModel="{{editSupplier?.irs}}" name="irs" class="form-control" id="irs" name="irs" placeholder="IRS office">
+                
+              </div>
+              <div class="form-group">
+                 <label for="address">Address</label>
+                 <input type="text" ngModel="{{editSupplier?.address}}" name="address" class="form-control" id="address" placeholder="Address">
+                
+              </div>
+              <div class="form-group">
+               <label for="zipCode">ZIP code</label>
+               <input type="text" ngModel="{{editSupplier?.zipCode}}" name="zipCode" class="form-control" id="zipCode" placeholder="ZIP code">
+              
+            </div>
+            <div class="form-group">
+               <label for="city">City</label>
+               <input type="text" ngModel="{{editSupplier?.city}}" name="city" class="form-control" id="city" placeholder="City">
+              
+            </div>
+            <div class="form-group">
+               <label for="country">Country</label>
+               <input type="text" ngModel="{{editSupplier?.country}}" name="country" class="form-control" id="country" placeholder="Country">
+              
+            </div>
+              <div class="modal-footer">
+                 <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                 <button (click)=" onUpdateSupplier(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+              </div>
+          </form>
+        </div>
+     </div>
+  </div>
+</div>  
+
+<!-- delete Modal -->
+
+<div class="modal fade" id="deleteSupplierModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="deleteModelLabel">Delete Supplier</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete supplier {{deleteSupplier?.nameFirst}} {{deleteSupplier?.nameLast}} ?</p>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button  (click)="onDeleteSupplier(deleteSupplier?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+
+
