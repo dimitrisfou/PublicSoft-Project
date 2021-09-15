@@ -41,7 +41,20 @@ ADD functionality:
 
 ![UIAdd2](https://user-images.githubusercontent.com/83978835/133519153-941a809a-c762-4bd5-8373-8fbbf484a403.PNG)
 
+DELETE functionality:
 
+![UIDelete2](https://user-images.githubusercontent.com/83978835/133519293-75cd2c3a-1726-47f7-a7df-fe7ad9e67e6b.PNG)
 
+![UIDelete1](https://user-images.githubusercontent.com/83978835/133519295-67fc2492-693e-4766-aca5-3d920d9093f3.PNG)
 
+UPDATE functionality:
 
+![UIUpdate3](https://user-images.githubusercontent.com/83978835/133519379-e366114d-8a52-4f06-b36b-106ec5d17330.PNG)
+
+![UIUpdate1](https://user-images.githubusercontent.com/83978835/133519381-63f105fd-de50-452a-bbc8-380c806f2b5e.PNG)
+
+![UIUpdate2](https://user-images.githubusercontent.com/83978835/133519382-eb6c8ed5-e104-484b-bc43-b1680c436ff3.PNG)
+
+SEARCH functionality by Company without RequestMappin (from RestController):
+
+![UISearch](https://user-images.githubusercontent.com/83978835/133519726-8ae806f4-372a-4ec7-b531-ac41205551c5.PNG)
