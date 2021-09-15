@@ -21,6 +21,12 @@ Configuration Backend with Frontend using corsFilter:
 
 Configuration with MySQL:
 
+![Capture1](https://user-images.githubusercontent.com/83978835/133518104-7f4bfd01-48c7-46dc-966b-dc39fb797b16.PNG)
+
+Define the URL, in which the frontent will listen:
+
+![Capture2](https://user-images.githubusercontent.com/83978835/133518305-65449724-8e8c-4153-9e15-c6caba9a62f5.PNG)
+
 
 
 
