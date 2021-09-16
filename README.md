@@ -5,7 +5,7 @@ RESTful API which exposed CRUD services via HTTP protocol using Spring Framework
 DESCRIPTION:
 
 This RESTFul API based on Spring, MySQL using Spring Data JPA for persistence data storage and Angular to build the Client side (front-end). 
-In this RESTFul API i exposed API Endpoints via HTTP, and  handling HTTP Requests through API Endpoints. I tested this using Postman App.
+In this RESTful API i exposed API Endpoints via HTTP, and  handling HTTP Requests through API Endpoints. I tested this using Postman App.
 Also, i used the Angular, more specifically Angular components, Angular Forms, and Angular Services. It goes into Angular HTTP Communication.
 
 To run it :
