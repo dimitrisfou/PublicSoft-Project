@@ -1,6 +1,6 @@
 # PublicSoft-Project
 
-RESTful API which exposed CRUD services via HTTP protocol using Spring Framework, MySQL and Angular FrameWork.
+RESTful API which exposed CRUD services via HTTP protocol using Spring Framework, MySQL DB and Angular FrameWork.
 --------------------------------------------------------------------------------------------------------------
 DESCRIPTION:
 
