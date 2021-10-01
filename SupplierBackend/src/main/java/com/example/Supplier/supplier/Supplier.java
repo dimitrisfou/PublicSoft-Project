@@ -10,6 +10,7 @@ public class Supplier implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String company;
+
     private String nameFirst;
     private String nameLast;
     @Column(nullable = false, updatable = false)
